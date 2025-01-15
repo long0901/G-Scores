@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Welcome to G-Scores</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h3>Check Your Scores</h3>
+                        <p>Look up your exam results using your registration number</p>
+                        <a href="{% url 'score_check' %}" class="btn btn-primary">Check Scores</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h3>Statistics</h3>
+                        <p>View score distribution and analysis</p>
+                        <a href="{% url 'statistics' %}" class="btn btn-primary">View Statistics</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h3>Top Students</h3>
+                        <p>See the top 10 students in Group A subjects</p>
+                        <a href="{% url 'top_students' %}" class="btn btn-primary">View Rankings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

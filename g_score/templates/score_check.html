@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Check Scores{% endblock %}
+
+{% block content %}
+<div class="score-check-container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Check Your Scores</h2>
+        </div>
+        <div class="card-body">
+            <form method="get" class="mb-4">
+                <div class="input-group">
+                    <input type="text" name="registration_number" 
+                           class="form-control" 
+                           placeholder="Enter Registration Number"
+                           value="{{ request.GET.registration_number|default:'' }}">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+
+            {% if result %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Score</th>
+                                <th>Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in result %}
+                            <tr>
+                                <td>{{ score.subject }}</td>
+                                <td>{{ score.score }}</td>
+                                <td>
+                                    {% if score.score >= 8 %}
+                                        <span class="badge bg-success">Excellent</span>
+                                    {% elif score.score >= 6 %}
+                                        <span class="badge bg-info">Good</span>
+                                    {% elif score.score >= 4 %}
+                                        <span class="badge bg-warning">Average</span>
+                                    {% else %}
+                                        <span class="badge bg-danger">Below Average</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% elif request.GET.registration_number %}
+                <div class="alert alert-warning">
+                    No results found for this registration number.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

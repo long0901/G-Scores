@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Rubik', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+/* Cards */
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: 1rem 1.25rem;
+}
+
+.card-header h2, .card-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+/* Score Check Styles */
+.score-check-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.input-group {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.input-group input {
+    border-right: none;
+}
+
+.input-group .btn {
+    border-left: none;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Statistics Styles */
+.statistics-container .progress {
+    height: 1.5rem;
+    margin: 0.5rem 0;
+    background-color: #f0f0f0;
+}
+
+.subject-summary {
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.subject-summary:last-child {
+    border-bottom: none;
+}
+
+/* Top Students Styles */
+.top-students-container table {
+    margin: 0;
+}
+
+.top-students-container tr:first-child {
+    background-color: #fff3cd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .table-responsive {
+        margin: 0 -1rem;
+    }
+    
+    .statistics-container .row {
+        flex-direction: column;
+    }
+    
+    .statistics-container .col-md-4 {
+        margin-top: 1rem;
+    }
+}
+
+/* Badges */
+.badge {
+    padding: 0.5em 1em;
+    font-weight: 500;
+}
+
+/* Charts */
+canvas {
+    max-width: 100%;
+    height: auto !important;
+    max-height: 400px;
+}
+
+/* Animations */
+.card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* Custom Button Styles */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    transform: translateY(-1px);
+}
+
+.table-responsive {
+    margin-top: 1rem;
+}
+
+.table th {
+    background-color: #f8f9fa;
+}

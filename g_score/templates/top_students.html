@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Top Students{% endblock %}
+
+{% block content %}
+<div class="top-students-container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Top 10 Students - Group A</h2>
+            <small class="text-muted">Mathematics, Physics, and Chemistry</small>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Registration Number</th>
+                            <th>Mathematics</th>
+                            <th>Physics</th>
+                            <th>Chemistry</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in top_students %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ student.registration_number }}</td>
+                            <td>{{ student.mathematics_score|floatformat:2 }}</td>
+                            <td>{{ student.physics_score|floatformat:2 }}</td>
+                            <td>{{ student.chemistry_score|floatformat:2 }}</td>
+                            <td class="fw-bold">{{ student.total_score|floatformat:2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

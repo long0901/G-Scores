@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Score Statistics{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2>Score Distribution by Subject</h2>
+        </div>
+        <div class="card-body">
+            <!-- Chart Section -->
+            <div class="mb-5">
+                <canvas id="scoreDistributionChart"></canvas>
+            </div>
+
+            <!-- Table Section -->
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Excellent (≥8)</th>
+                            <th>Good (6-7.99)</th>
+                            <th>Average (4-5.99)</th>
+                            <th>Poor (<4)</th>
+                            <th>Total Students</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in stats_data %}
+                        <tr>
+                            <td>{{ item.subject }}</td>
+                            <td>{{ item.stats.excellent }}</td>
+                            <td>{{ item.stats.good }}</td>
+                            <td>{{ item.stats.average }}</td>
+                            <td>{{ item.stats.poor }}</td>
+                            <td>{{ item.total }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('scoreDistributionChart').getContext('2d');
+    
+    const data = {
+        labels: {{ chart_labels|safe }},
+        datasets: [
+            {
+                label: 'Excellent (≥8)',
+                data: {{ chart_data.excellent|safe }},
+                backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            },
+            {
+                label: 'Good (6-7.99)',
+                data: {{ chart_data.good|safe }},
+                backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            },
+            {
+                label: 'Average (4-5.99)',
+                data: {{ chart_data.average|safe }},
+                backgroundColor: 'rgba(255, 206, 86, 0.7)',
+                borderColor: 'rgba(255, 206, 86, 1)',
+                borderWidth: 1
+            },
+            {
+                label: 'Poor (<4)',
+                data: {{ chart_data.poor|safe }},
+                backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }
+        ]
+    };
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Score Distribution by Subject',
+                    font: {
+                        size: 16
+                    }
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            },
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Number of Students'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+{% endblock %}
+{% endblock %}
