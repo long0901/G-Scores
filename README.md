@@ -1,7 +1,11 @@
 # G_score
 
 ## Giới thiệu
-Ứng dụng giúp tra cứu điểm thi THPT 2024, báo cáo thống kê điểm số và danh sách 10 học sinh đứng đầu khối A gồm (toán, vật lý, hóa học)
+Website giúp tra cứu điểm thi THPT 2024, báo cáo thống kê điểm số và danh sách 10 học sinh đứng đầu khối A gồm (toán, vật lý, hóa học)
+
+## Website
+https://ai-tools.asia/
+
 
 ## Yêu cầu
 - Python 3.8 trở lên
@@ -10,7 +14,6 @@
 - Thư viện khác được liệt kê trong `requirements.txt`
 
 ## Các bước thiết lập
-
 ### 1. Clone dự án
 Sử dụng lệnh sau để clone dự án về máy tính của bạn:
 
