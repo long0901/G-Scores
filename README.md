@@ -24,15 +24,21 @@ Tạo một môi trường ảo để quản lý các gói phụ thuộc:
 ```bash
 python -m venv venv
 
-venv\Scripts\activate 
+venv\Scripts\activate
+cd G-Scores
+cd g_score
+```
+### 3. Cài đặt các phụ thuộc cần thiết
+```bash
+pip install -r requirements.txt
 ```
 
-### 3. Thực hiện các migrations
+### 4. Thực hiện các migrations
 Chạy lệnh sau để tạo các bảng trong cơ sở dữ liệu:
 ```bash
 python manage.py migrate
 ```
-### 4. Chạy máy chủ phát triển và truy cập localhost
+### 5. Chạy máy chủ phát triển và truy cập localhost
 ```bash
 python manage.py runserver 
 ```
