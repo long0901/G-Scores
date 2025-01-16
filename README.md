@@ -15,7 +15,7 @@
 Sử dụng lệnh sau để clone dự án về máy tính của bạn:
 
 ```bash
-git clone https://github.com/long0901/G-Scores
+git clone https://github.com/long0901/G-Scores.git
 ```
 
 ### 2. Tạo và kích hoạt môi trường ảo
